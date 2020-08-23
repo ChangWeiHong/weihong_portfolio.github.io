@@ -33,6 +33,9 @@
 	display: none;
 }
 @media (min-width: 1920px) {
+	a{
+		text-decoration:none
+	}
 	.mediaViewInfo {
 		--web-view-name: index;
 		--web-view-id: index;
@@ -1539,17 +1542,55 @@
 		color: rgba(0,0,0,1);
 		text-transform: capitalize;
 	}
-	input {
-		min-width: 550px;
-		min-height: 30px;
+	input[type=number],
+	input[type=text],
+	input[type=date],
+	input[type=email], 
+	select {
+		width: 550px;
+		height: 30px;
 		padding: .1rem;
+		background: #fff;
+		-webkit-appearance: none;
+		background-position-x: 244px;
 	}
-	input:focus,
+	textarea{
+		resize: none;
+		height: 90px;
+		width: 580px;
+	}
+	input[type=number]::-webkit-outer-spin-button,
+	input[type=number]::-webkit-inner-spin-button {
+	  -webkit-appearance: none;
+	  margin: 0;
+	}
+	input[type=submit]{
+		color: white;
+		background-color: transparent;
+		border: none;
+		border-radius: 30px;
+		height: 48px;
+		width: 128px;
+		margin-left: -48px;
+		margin-top: -10px;
+		cursor: pointer;
+	}
+	input[type=submit]:focus,
+	input[type=number]:focus,
+	input[type=text]:focus,
+	input[type=date]:focus,
+	input[type=email]:focus,
 	select:focus,
 	textarea:focus,
-	button:focus {
+	button:focus 
+	textarea:focus{
 	    outline: none;
 	}
+	.unstyled::-webkit-inner-spin-button,
+	.unstyled::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
 }
 @media (min-width: 0px) and (max-width: 1919px) {
 	.mediaViewInfo {
@@ -1632,6 +1673,7 @@
 		left: 344.633px;
 		top: 41.198px;
 		overflow: visible;
+		cursor: pointer;
 	}
 	#Path_1528 {
 		fill: rgba(255,255,255,1);
@@ -2955,16 +2997,54 @@
 		color: rgba(112,112,112,1);
 		text-transform: capitalize;
 	}
-	input {
-		min-width: 320px;
-		min-height: 30px;
+	input[type=number],
+	input[type=text],
+	input[type=date],
+	input[type=email], 
+	select {
+		width: 320px;
+		height: 30px;
 		padding: .1rem;
+		background: #fff;
+		-webkit-appearance: none;
+		background-position-x: 244px;
 	}
-	input:focus,
+	textarea{
+		resize: none;
+		height: 100px;
+		width: 310px;
+	}
+	input[type=number]::-webkit-outer-spin-button,
+	input[type=number]::-webkit-inner-spin-button {
+	  -webkit-appearance: none;
+	  margin: 0;
+	}
+	input[type=submit]{
+		color: white;
+		background-color: transparent;
+		border: none;
+		border-radius: 30px;
+		height: 48px;
+		width: 128px;
+		margin-left: -48px;
+		margin-top: -10px;
+		cursor: pointer;
+	}
+	input[type=submit]:focus,
+	input[type=number]:focus,
+	input[type=text]:focus,
+	input[type=date]:focus,
+	input[type=email]:focus,
 	select:focus,
 	textarea:focus,
-	button:focus {
+	button:focus,
+	textarea:focus {
 	    outline: none;
+	}
+	.unstyled::-webkit-inner-spin-button,
+	.unstyled::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
 	}
 }
 
@@ -5815,6 +5895,7 @@ window.application = new Application();
 			</svg>
 		</div>
 		<img id="iPhone_X_-_Light_y" src="iPhone_X_-_Light_y.png" srcset="iPhone_X_-_Light_y.png 1x, iPhone_X_-_Light_y@2x.png 2x">
+		<a href="#">
 		<div id="Btg">
 			<svg class="Rectangle_77">
 				<rect id="Rectangle_77" rx="16" ry="16" x="0" y="0" width="245" height="73">
@@ -5834,6 +5915,7 @@ window.application = new Application();
 				</svg>
 			</div>
 		</div>
+	</a>
 		<div id="It_is_a_long_established_fact_">
 			<span>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</span>
 		</div>
@@ -5942,6 +6024,7 @@ window.application = new Application();
 			<rect id="Rectangle_159" rx="16" ry="16" x="0" y="0" width="1000" height="928">
 			</rect>
 		</svg>
+		<form method="post" action="#">
 		<div id="Group_1019">
 			<div id="Type_of_project">
 				<span>Type of project</span>
@@ -5955,7 +6038,12 @@ window.application = new Application();
 					</rect>
 				</svg>
 				<div id="Select_your_project_category">
-					<span>Select your project category</span>
+					<select id="category" name="category">
+						<option disabled selected value>Select your project category</option>
+						<option value="Ecommerce">Ecommerce</option>
+						<option value="Mobile App">Mobile App</option>
+						<option value="UI/UX Design">UI/UX Design</option>
+					</select>
 				</div>
 			</div>
 			<div id="Email">
@@ -5967,7 +6055,7 @@ window.application = new Application();
 					</rect>
 				</svg>
 				<div id="Your_work_email">
-					<span>Your work email</span>
+					<input type="email" name="email" placeholder="Your work email">
 				</div>
 			</div>
 			<div id="Contact">
@@ -6010,7 +6098,12 @@ window.application = new Application();
 					</rect>
 				</svg>
 				<div id="Select_an_estimate_of_your_bud">
-					<span>Select an estimate of your budget range</span>
+					<select id="budgetrange" name="budgetrange">
+						<option disabled selected value>Select an estimate of your budget range</option>
+						<option value="1-4999">1-4999</option>
+						<option value="5000-9999">5000-9999</option>
+						<option value="10000-15000">10000-15000</option>
+					</select>
 				</div>
 				<svg class="Icon_feather-chevron-down_ci" viewBox="9 13.5 12.549 6.274">
 					<path id="Icon_feather-chevron-down_ci" d="M 9 13.5 L 15.2744140625 19.7744140625 L 21.548828125 13.5">
@@ -6026,7 +6119,7 @@ window.application = new Application();
 					</rect>
 				</svg>
 				<div id="When_do_you_need_it_done">
-					<span>When do you need it done?</span>
+					<input type="date" name="projectdeadline" placeholder="When do you need it done?" class="unstyled">
 				</div>
 				<svg class="Icon_awesome-calendar-alt" viewBox="0 0 17.286 19.756">
 					<path id="Icon_awesome-calendar-alt" d="M 0 17.90374755859375 C 0 18.92626762390137 0.8295917510986328 19.755859375 1.85211181640625 19.755859375 L 15.43426513671875 19.755859375 C 16.45678520202637 19.755859375 17.286376953125 18.92626762390137 17.286376953125 17.90374755859375 L 17.286376953125 7.408447265625 L 0 7.408447265625 L 0 17.90374755859375 Z M 12.347412109375 10.34095764160156 C 12.347412109375 10.08629322052002 12.55577564239502 9.8779296875 12.81044006347656 9.8779296875 L 14.35386657714844 9.8779296875 C 14.6085319519043 9.8779296875 14.81689453125 10.08629322052002 14.81689453125 10.34095764160156 L 14.81689453125 11.88438415527344 C 14.81689453125 12.1390495300293 14.6085319519043 12.347412109375 14.35386657714844 12.347412109375 L 12.81044006347656 12.347412109375 C 12.55577564239502 12.347412109375 12.347412109375 12.1390495300293 12.347412109375 11.88438415527344 L 12.347412109375 10.34095764160156 Z M 12.347412109375 15.27992248535156 C 12.347412109375 15.02525806427002 12.55577564239502 14.81689453125 12.81044006347656 14.81689453125 L 14.35386657714844 14.81689453125 C 14.6085319519043 14.81689453125 14.81689453125 15.02525806427002 14.81689453125 15.27992248535156 L 14.81689453125 16.82334899902344 C 14.81689453125 17.0780143737793 14.6085319519043 17.286376953125 14.35386657714844 17.286376953125 L 12.81044006347656 17.286376953125 C 12.55577564239502 17.286376953125 12.347412109375 17.0780143737793 12.347412109375 16.82334899902344 L 12.347412109375 15.27992248535156 Z M 7.408447265625 10.34095764160156 C 7.408447265625 10.08629322052002 7.616809844970703 9.8779296875 7.871475219726563 9.8779296875 L 9.414901733398438 9.8779296875 C 9.669567108154297 9.8779296875 9.8779296875 10.08629322052002 9.8779296875 10.34095764160156 L 9.8779296875 11.88438415527344 C 9.8779296875 12.1390495300293 9.669567108154297 12.347412109375 9.414901733398438 12.347412109375 L 7.871475219726563 12.347412109375 C 7.616809844970703 12.347412109375 7.408447265625 12.1390495300293 7.408447265625 11.88438415527344 L 7.408447265625 10.34095764160156 Z M 7.408447265625 15.27992248535156 C 7.408447265625 15.02525806427002 7.616809844970703 14.81689453125 7.871475219726563 14.81689453125 L 9.414901733398438 14.81689453125 C 9.669567108154297 14.81689453125 9.8779296875 15.02525806427002 9.8779296875 15.27992248535156 L 9.8779296875 16.82334899902344 C 9.8779296875 17.0780143737793 9.669567108154297 17.286376953125 9.414901733398438 17.286376953125 L 7.871475219726563 17.286376953125 C 7.616809844970703 17.286376953125 7.408447265625 17.0780143737793 7.408447265625 16.82334899902344 L 7.408447265625 15.27992248535156 Z M 2.469482421875 10.34095764160156 C 2.469482421875 10.08629322052002 2.677845001220703 9.8779296875 2.932510375976563 9.8779296875 L 4.475936889648438 9.8779296875 C 4.730602264404297 9.8779296875 4.93896484375 10.08629322052002 4.93896484375 10.34095764160156 L 4.93896484375 11.88438415527344 C 4.93896484375 12.1390495300293 4.730602264404297 12.347412109375 4.475936889648438 12.347412109375 L 2.932510375976563 12.347412109375 C 2.677845001220703 12.347412109375 2.469482421875 12.1390495300293 2.469482421875 11.88438415527344 L 2.469482421875 10.34095764160156 Z M 2.469482421875 15.27992248535156 C 2.469482421875 15.02525806427002 2.677845001220703 14.81689453125 2.932510375976563 14.81689453125 L 4.475936889648438 14.81689453125 C 4.730602264404297 14.81689453125 4.93896484375 15.02525806427002 4.93896484375 15.27992248535156 L 4.93896484375 16.82334899902344 C 4.93896484375 17.0780143737793 4.730602264404297 17.286376953125 4.475936889648438 17.286376953125 L 2.932510375976563 17.286376953125 C 2.677845001220703 17.286376953125 2.469482421875 17.0780143737793 2.469482421875 16.82334899902344 L 2.469482421875 15.27992248535156 Z M 15.43426513671875 2.469482421875 L 13.5821533203125 2.469482421875 L 13.5821533203125 0.61737060546875 C 13.5821533203125 0.2778168022632599 13.30433654785156 0 12.96478271484375 0 L 11.73004150390625 0 C 11.39048862457275 0 11.1126708984375 0.2778168022632599 11.1126708984375 0.61737060546875 L 11.1126708984375 2.469482421875 L 6.1737060546875 2.469482421875 L 6.1737060546875 0.61737060546875 C 6.1737060546875 0.2778168022632599 5.895889282226563 0 5.55633544921875 0 L 4.32159423828125 0 C 3.982040405273438 0 3.7042236328125 0.2778168022632599 3.7042236328125 0.61737060546875 L 3.7042236328125 2.469482421875 L 1.85211181640625 2.469482421875 C 0.8295917510986328 2.469482421875 0 3.299074172973633 0 4.32159423828125 L 0 6.1737060546875 L 17.286376953125 6.1737060546875 L 17.286376953125 4.32159423828125 C 17.286376953125 3.299074172973633 16.45678520202637 2.469482421875 15.43426513671875 2.469482421875 Z">
@@ -6042,7 +6135,7 @@ window.application = new Application();
 					</rect>
 				</svg>
 				<div id="Anything_else_to_add">
-					<span>Anything else to add?</span>
+					<textarea id="message" name="message" placeholder="Anything else to add?"></textarea>
 				</div>
 			</div>
 			<div id="Group_1626">
@@ -6051,10 +6144,11 @@ window.application = new Application();
 					</rect>
 				</svg>
 				<div id="Send">
-					<span>Send</span>
+					<input type="submit" value="Send"/>
 				</div>
 			</div>
 		</div>
+	</form>
 		<div id="Project_Enquiry">
 			<span>Project Enquiry</span>
 		</div>
@@ -6078,15 +6172,18 @@ window.application = new Application();
 		<div id="It_is_a_long_established_fact__c">
 			<span>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</span>
 		</div>
+		<a href="#">
 		<div id="Btg_c">
 			<svg class="Rectangle_77_c">
 				<rect id="Rectangle_77_c" rx="16" ry="16" x="0" y="0" width="250" height="88">
 				</rect>
 			</svg>
+			<a href="#">
 			<div id="Btg_da">
 				<div id="explore_more">
 					<span>explore more</span>
 				</div>
+
 				<div id="arrow_right_alt-24px">
 					<svg class="Path_5_c" viewBox="0 0 30 30">
 						<path id="Path_5_c" d="M 0 0 L 29.99999809265137 0 L 29.99999809265137 29.99999809265137 L 0 29.99999809265137 L 0 0 Z">
@@ -6098,30 +6195,41 @@ window.application = new Application();
 					</svg>
 				</div>
 			</div>
+		</a>
 		</div>
+		</a>
 		<img id="iPhone_X_-_Light-1" src="iPhone_X_-_Light-1.png" srcset="iPhone_X_-_Light-1.png 1x, iPhone_X_-_Light-1@2x.png 2x">
 		<img id="iPhone_X_-_Light2x" src="iPhone_X_-_Light2x.png" srcset="iPhone_X_-_Light2x.png 1x, iPhone_X_-_Light2x@2x.png 2x">
 		<img id="iPhone_X_-_Light_dc" src="iPhone_X_-_Light_dc.png" srcset="iPhone_X_-_Light_dc.png 1x, iPhone_X_-_Light_dc@2x.png 2x">
 	</div>
 	<div id="Header">
 		<div id="Group_1596">
+			<a href="#Banner_Slider">
 			<div id="home">
 				<span>home</span>
 			</div>
+			</a>
 			<svg class="Rectangle_161">
 				<rect id="Rectangle_161" rx="2" ry="2" x="0" y="0" width="80" height="4">
 				</rect>
 			</svg>
 		</div>
+		<a href="#why_us">
 		<div id="why_us_dh">
 			<span>why us</span>
 		</div>
+		</a>
+		<a href="#">
 		<div id="our_clients">
 			<span>our clients</span>
 		</div>
+		</a>
+		<a href="#">
 		<div id="our_portfolio">
 			<span>our portfolio</span>
 		</div>
+		</a>
+		<a href="#Work_with_us">
 		<div id="Btg_dk">
 			<svg class="Rectangle_1_dl">
 				<rect id="Rectangle_1_dl" rx="25" ry="25" x="0" y="0" width="171" height="50">
@@ -6131,6 +6239,7 @@ window.application = new Application();
 				<span>contact us</span>
 			</div>
 		</div>
+		</a>
 		<div id="pixbey_dn">
 			<span>pixbey</span>
 		</div>
@@ -6163,7 +6272,73 @@ window.application = new Application();
 	<div id="Group_1613">
 		<img id="iPhone_X_-_Light_dz" src="iPhone_X_-_Light_dz.png" srcset="iPhone_X_-_Light_dz.png 1x, iPhone_X_-_Light_dz@2x.png 2x">
 	</div>
-	<div id="Icon_ionic-ios-menu">
+
+    <aside class="nav-sidebar">
+        <h3>Agency Landing Page Menu</h3>
+        <button class="nav-sidebar-close-btn" onclick="closeMenu()">x</button>
+        <ul>
+        	<li><a href="#">Home</a></li>
+            <li><a href="#">Why Us</a></li>
+            <li><a href="#">Our Portfolio</a></li>
+            <li><a href="#">Our Clients</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </aside>
+
+    <script type="text/javascript">
+	function openMenu() {
+    document.querySelector(".nav-sidebar").classList.add("open");
+ 	}
+
+	function closeMenu() {
+	    document.querySelector(".nav-sidebar").classList.remove("open");
+	}
+	</script>
+
+	<style type="text/css">
+	.nav-sidebar{
+        position: fixed;
+	    transform: translateX(-30rem);
+	    width: 30rem;
+	    height: 100%;
+	    font-size: 1rem;
+	    background-color: #ddd;
+	    padding-top: 30px;
+	    padding-left: 20px;
+	    z-index: 1;
+    	position:relative;
+		}
+
+	.nav-sidebar.open{
+	    transform: translateX(0);
+	}
+	.nav-sidebar-close-btn{
+	    font:bold;
+	    background: transparent;
+	    border: none;
+	    font-size: 1rem;
+	    cursor: pointer;
+	    height: 1rem;
+	    width: 1rem;
+	    padding: .5rem;
+	    padding-top: 0;
+	    position: absolute;
+	    right: 8rem;
+	    top: 1.8rem;
+	}
+	aside,ul,li,a{
+		list-style: none;
+		font-family: Poppins;
+		font-style: normal;
+		font-weight: normal;
+		text-decoration: none;
+		color: #000;
+	}
+	aside{
+		position: fixed;
+	}
+	</style>
+	<div id="Icon_ionic-ios-menu" onclick="openMenu()">
 		<svg class="Path_1528" viewBox="4.5 10.125 27 2.25">
 			<path id="Path_1528" d="M 30.375 12.375 L 5.625 12.375 C 5.006249904632568 12.375 4.5 11.86874961853027 4.5 11.25 L 4.5 11.25 C 4.5 10.63125038146973 5.006249904632568 10.125 5.625 10.125 L 30.375 10.125 C 30.99374961853027 10.125 31.5 10.63125038146973 31.5 11.25 L 31.5 11.25 C 31.5 11.86874961853027 30.99374961853027 12.375 30.375 12.375 Z">
 			</path>
@@ -6184,6 +6359,7 @@ window.application = new Application();
 		<div id="It_is_a_long_established_fact__d">
 			<span>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</span>
 		</div>
+		<a href="#">
 		<div id="Btg_d">
 			<svg class="Rectangle_77_d">
 				<rect id="Rectangle_77_d" rx="16" ry="16" x="0" y="0" width="250" height="60">
@@ -6205,6 +6381,7 @@ window.application = new Application();
 				</div>
 			</div>
 		</div>
+	</a>
 	</div>
 	<div id="Why_Us_ee">
 		<div id="Group_1615">
@@ -6224,6 +6401,7 @@ window.application = new Application();
 			</div>
 			<img id="iPhone_X_-_Light_ek" src="iPhone_X_-_Light_ek.png" srcset="iPhone_X_-_Light_ek.png 1x, iPhone_X_-_Light_ek@2x.png 2x">
 		</div>
+		<a href="#">
 		<div id="Btg_el">
 			<svg class="Rectangle_77_em">
 				<rect id="Rectangle_77_em" rx="16" ry="16" x="0" y="0" width="245" height="60">
@@ -6243,6 +6421,7 @@ window.application = new Application();
 				</svg>
 			</div>
 		</div>
+		</a>
 		<div id="It_is_a_long_established_fact__er">
 			<span>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span>
 		</div>
@@ -6366,6 +6545,7 @@ window.application = new Application();
 			<rect id="Rectangle_159_fv" rx="16" ry="16" x="0" y="0" width="403" height="1057">
 			</rect>
 		</svg>
+		<form method="post" action="#">
 		<div id="Group_1019_fw">
 			<div id="Type_of_project_fx">
 				<span>Type of project</span>
@@ -6379,7 +6559,12 @@ window.application = new Application();
 					</rect>
 				</svg>
 				<div id="Select_your_project_category_f">
-					<span>Select your project category</span>
+					<select id="category" name="category">
+						<option disabled selected value>Select your project category</option>
+						<option value="Ecommerce">Ecommerce</option>
+						<option value="Mobile App">Mobile App</option>
+						<option value="UI/UX Design">UI/UX Design</option>
+					</select>
 				</div>
 				<svg class="Icon_feather-chevron-down_f" viewBox="9 13.5 12.549 6.274">
 					<path id="Icon_feather-chevron-down_f" d="M 9 13.5 L 15.2744140625 19.7744140625 L 21.548828125 13.5">
@@ -6395,7 +6580,7 @@ window.application = new Application();
 					</rect>
 				</svg>
 				<div id="Your_work_email_f">
-					<span>Your work email</span>
+					<input type="email" name="email" placeholder="Your work email">
 				</div>
 			</div>
 			<div id="Contact_f">
@@ -6434,7 +6619,12 @@ window.application = new Application();
 					</rect>
 				</svg>
 				<div id="Select_an_estimate_of_your_bud_gj">
-					<span>Select an estimate of your budget range</span>
+					<select id="budgetrange" name="budgetrange">
+						<option disabled selected value>Select an estimate of your budget range</option>
+						<option value="1-4999">1-4999</option>
+						<option value="5000-9999">5000-9999</option>
+						<option value="10000-15000">10000-15000</option>
+					</select>
 				</div>
 				<svg class="Icon_feather-chevron-down_gk" viewBox="9 13.5 12.549 6.274">
 					<path id="Icon_feather-chevron-down_gk" d="M 9 13.5 L 15.2744140625 19.7744140625 L 21.548828125 13.5">
@@ -6450,7 +6640,7 @@ window.application = new Application();
 					</rect>
 				</svg>
 				<div id="When_do_you_need_it_done_go">
-					<span>When do you need it done?</span>
+					<input type="date" name="projectdeadline" placeholder="When do you need it done?" class="unstyled">
 				</div>
 				<svg class="Icon_awesome-calendar-alt_gp" viewBox="0 0 17.286 19.756">
 					<path id="Icon_awesome-calendar-alt_gp" d="M 0 17.90374755859375 C 0 18.92626762390137 0.8295917510986328 19.755859375 1.85211181640625 19.755859375 L 15.43426513671875 19.755859375 C 16.45678520202637 19.755859375 17.286376953125 18.92626762390137 17.286376953125 17.90374755859375 L 17.286376953125 7.408447265625 L 0 7.408447265625 L 0 17.90374755859375 Z M 12.347412109375 10.34095764160156 C 12.347412109375 10.08629322052002 12.55577564239502 9.8779296875 12.81044006347656 9.8779296875 L 14.35386657714844 9.8779296875 C 14.6085319519043 9.8779296875 14.81689453125 10.08629322052002 14.81689453125 10.34095764160156 L 14.81689453125 11.88438415527344 C 14.81689453125 12.1390495300293 14.6085319519043 12.347412109375 14.35386657714844 12.347412109375 L 12.81044006347656 12.347412109375 C 12.55577564239502 12.347412109375 12.347412109375 12.1390495300293 12.347412109375 11.88438415527344 L 12.347412109375 10.34095764160156 Z M 12.347412109375 15.27992248535156 C 12.347412109375 15.02525806427002 12.55577564239502 14.81689453125 12.81044006347656 14.81689453125 L 14.35386657714844 14.81689453125 C 14.6085319519043 14.81689453125 14.81689453125 15.02525806427002 14.81689453125 15.27992248535156 L 14.81689453125 16.82334899902344 C 14.81689453125 17.0780143737793 14.6085319519043 17.286376953125 14.35386657714844 17.286376953125 L 12.81044006347656 17.286376953125 C 12.55577564239502 17.286376953125 12.347412109375 17.0780143737793 12.347412109375 16.82334899902344 L 12.347412109375 15.27992248535156 Z M 7.408447265625 10.34095764160156 C 7.408447265625 10.08629322052002 7.616809844970703 9.8779296875 7.871475219726563 9.8779296875 L 9.414901733398438 9.8779296875 C 9.669567108154297 9.8779296875 9.8779296875 10.08629322052002 9.8779296875 10.34095764160156 L 9.8779296875 11.88438415527344 C 9.8779296875 12.1390495300293 9.669567108154297 12.347412109375 9.414901733398438 12.347412109375 L 7.871475219726563 12.347412109375 C 7.616809844970703 12.347412109375 7.408447265625 12.1390495300293 7.408447265625 11.88438415527344 L 7.408447265625 10.34095764160156 Z M 7.408447265625 15.27992248535156 C 7.408447265625 15.02525806427002 7.616809844970703 14.81689453125 7.871475219726563 14.81689453125 L 9.414901733398438 14.81689453125 C 9.669567108154297 14.81689453125 9.8779296875 15.02525806427002 9.8779296875 15.27992248535156 L 9.8779296875 16.82334899902344 C 9.8779296875 17.0780143737793 9.669567108154297 17.286376953125 9.414901733398438 17.286376953125 L 7.871475219726563 17.286376953125 C 7.616809844970703 17.286376953125 7.408447265625 17.0780143737793 7.408447265625 16.82334899902344 L 7.408447265625 15.27992248535156 Z M 2.469482421875 10.34095764160156 C 2.469482421875 10.08629322052002 2.677845001220703 9.8779296875 2.932510375976563 9.8779296875 L 4.475936889648438 9.8779296875 C 4.730602264404297 9.8779296875 4.93896484375 10.08629322052002 4.93896484375 10.34095764160156 L 4.93896484375 11.88438415527344 C 4.93896484375 12.1390495300293 4.730602264404297 12.347412109375 4.475936889648438 12.347412109375 L 2.932510375976563 12.347412109375 C 2.677845001220703 12.347412109375 2.469482421875 12.1390495300293 2.469482421875 11.88438415527344 L 2.469482421875 10.34095764160156 Z M 2.469482421875 15.27992248535156 C 2.469482421875 15.02525806427002 2.677845001220703 14.81689453125 2.932510375976563 14.81689453125 L 4.475936889648438 14.81689453125 C 4.730602264404297 14.81689453125 4.93896484375 15.02525806427002 4.93896484375 15.27992248535156 L 4.93896484375 16.82334899902344 C 4.93896484375 17.0780143737793 4.730602264404297 17.286376953125 4.475936889648438 17.286376953125 L 2.932510375976563 17.286376953125 C 2.677845001220703 17.286376953125 2.469482421875 17.0780143737793 2.469482421875 16.82334899902344 L 2.469482421875 15.27992248535156 Z M 15.43426513671875 2.469482421875 L 13.5821533203125 2.469482421875 L 13.5821533203125 0.61737060546875 C 13.5821533203125 0.2778168022632599 13.30433654785156 0 12.96478271484375 0 L 11.73004150390625 0 C 11.39048862457275 0 11.1126708984375 0.2778168022632599 11.1126708984375 0.61737060546875 L 11.1126708984375 2.469482421875 L 6.1737060546875 2.469482421875 L 6.1737060546875 0.61737060546875 C 6.1737060546875 0.2778168022632599 5.895889282226563 0 5.55633544921875 0 L 4.32159423828125 0 C 3.982040405273438 0 3.7042236328125 0.2778168022632599 3.7042236328125 0.61737060546875 L 3.7042236328125 2.469482421875 L 1.85211181640625 2.469482421875 C 0.8295917510986328 2.469482421875 0 3.299074172973633 0 4.32159423828125 L 0 6.1737060546875 L 17.286376953125 6.1737060546875 L 17.286376953125 4.32159423828125 C 17.286376953125 3.299074172973633 16.45678520202637 2.469482421875 15.43426513671875 2.469482421875 Z">
@@ -6466,19 +6656,20 @@ window.application = new Application();
 					</rect>
 				</svg>
 				<div id="Anything_else_to_add_gt">
-					<span>Anything else to add?</span>
+					<textarea id="message" name="message" placeholder="Anything else to add?"></textarea>
 				</div>
 			</div>
 			<div id="Group_1626_gu">
 				<svg class="Rectangle_160_gv">
-					<rect id="Rectangle_160_gv" rx="25" ry="25" x="0" y="0" width="129" height="50">
-					</rect>
+					<rect id="Rectangle_160_gv" rx="25" ry="25" x="0" y="0" width="129" height="50"></rect>
+						
 				</svg>
 				<div id="Send_gw">
-					<span>Send</span>
+					<input type="submit" value="Send"/>
 				</div>
 			</div>
 		</div>
+		</form>
 		<div id="Project_Enquiry_gx">
 			<span>Project Enquiry</span>
 		</div>
